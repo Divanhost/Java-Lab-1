@@ -1,32 +1,36 @@
 package com.company;
 
-public class Calculator {
-    long number;
+public class Calculator{
 
-    public Calculator(long number) {
-        this.number = number;
-    }
-    public void Remainder(){
-        long remainder = this.number % (-5);
+    public void Remainder(long number){
+        long remainder = number % (-5);
         System.out.println(remainder);
     }
 
-    public void ToOctal(){
-        System.out.println(Integer.toOctalString((int)number));
-    }
 
-    public void GetFactorial(){
-        long factorial=1;
-        long n = number;
-        while(n>0){
-            factorial*=n;
-            n--;
+
+    public void ToOctal(long number){
+        if(number<0)  {
+            System.out.println( "-" + Long.toOctalString(number*(-1)));
         }
-        System.out.println(factorial);
+        else   {
+            System.out.println(Long.toOctalString(number));
+        }
     }
 
-    public boolean IsFibonacci(){
-        if(number == 1) return true;
+    public void GetFactorial(long number){
+        long factorial=1;
+        while(number>0){
+            factorial*=number;
+            number--;
+        }
+        if(factorial<= 0)  System.out.println("This factorial is too strong for u, traveller");
+        else  System.out.println(factorial);
+    }
+
+    public boolean IsFibonacci(long number){
+        if(number < 0) return false;
+        if(number == 1||number ==0) return true;
         else{
             long a =1, b=1,c=0;
             while (c<number){
@@ -39,16 +43,17 @@ public class Calculator {
         }
     }
 
-    public boolean IsSimple(){
+    public boolean IsSimple(long number){
+           if(number <= 1) return false;
            int l=0;
-       for(long i = 2;i<number-2;i++){
-           float k = number/i;
-           if(k==(int)k){
-               l++;
+           for(long i = 2;i<number-2;i++){
+               float k = (float)number/i;
+               if(k-(int)k == 0){
+                   l++;
+               }
            }
-       }
-       if(l>=1) return  false;
-       else return true;
+           if(l>=1) return  false;
+           else return true;
     }
 
 }
