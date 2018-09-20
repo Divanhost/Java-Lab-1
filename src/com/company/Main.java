@@ -3,7 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        long number = 0;
+        long number = 144;
         Calculator calculator = new Calculator();
         calculator.Remainder(number);
         calculator.ToOctal(number);
